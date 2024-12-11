@@ -1,64 +1,62 @@
-//Declare variables to store 
-    //The price of different items 
-    //The quantity
-    //The sales tax rate 
-    //Enter amount of money
-
-//Calculate and Display 
-    //Subtotal (cost without tax)
-    //Total sales tax 
-    //Total (subtotal + sale tax)
-    //Give Change
-import java.util.*;
+import java.util.Scanner;
 
 public class Grocery {
-    public static void main (String [] args) {
-        
-        System.out.println("ShopSmart Calculator"); 
-        
+    public static void main (String [] args){
+        System.out.println("Welcome to ShopSmart \n");
+
+        Scanner input = new Scanner(System.in);
+        double grandTotal = 0;
+
+        System.out.println("1. Continue");
+        System.out.println("2. Creator");
+        System.out.println("2. Exit \n");
+
+        System.out.print("Enter your choice: ");
+
+        int choice1 = input.nextInt();
+
         do {
-            System.out.print("Enter the amount: "); //Input for the amount
-            Scanner inputPrice = new Scanner(System.in); //Creates a scanner to read the amount
-                double amount = inputPrice.nextDouble();
+            if (choice1 == 1){
+                break;
+            } else if (choice1 == 2){
+                System.out.println("Hi I am Renz Viloria, and my goal for this project is to elimate paper receipts. I am a first year Computer Science student.");
+                break;
+            } else {
+                System.out.println("Thank you for using ShopSmart!");
+                return;
+            }
+        } while (true);
 
-            System.out.print("Enter the quantity: "); //Input the quantity 
-            Scanner inputQuantity = new Scanner(System.in); //Creates a scanner to read the quantity 
-                double quantity = inputQuantity.nextDouble();
-                double total;
-                
-                total = amount * quantity; // Computation for the total
+        do {
+            System.out.print("Enter the amount: ");
+                double amount = input.nextDouble();
 
-            System.out.println("Total Amount: " + total); // Answer for the computation
-            
-            //Prompt if want to continue again 
-            System.out.print("Do you want to use ShopSmart Calculator again ? ");
-            Scanner inputChoice = new Scanner(System.in);
-                String choice = null;
-                choice = inputChoice.nextLine();
+            System.out.print("Enter the quantity: "); 
+                double quantity = input.nextDouble();
+                double total = amount * quantity;
 
-                // Checking for input
-                try {
+                grandTotal += total;
 
-                    if (amount == 0 && quantity == 0) {
-                        System.out.println("Not a valid amount/quantity");
-                    }  
-                    
-                    else if (choice.equalsIgnoreCase ("yes")) {
-                        continue;
-                    }
+            System.out.print("Current amount: " + total);
 
-                    else if (choice.equalsIgnoreCase ("no")) {
-                        System.out.println("Thank you for using ShopSmart Calculator");
-                        break; 
-                    } 
-                } 
-                
-                catch (NumberFormatException e) {
-                    System.out.println("Not a valid amount/quantity");
+            System.out.println("\nDo you want to add or exit?\n");
+            System.out.println("1. Add");
+            System.out.println("2. Exit");
+            System.out.print("Enter your choice here: ");
+
+            int choice2 = input.nextInt();
+
+                if (choice2 == 1){
+                    continue;
+                } else if (choice2 == 2){
+                    System.out.println("Thank you for using ShopSmart");
+                    System.out.println("Grand total: " +grandTotal);
+                    break;
+                } else {
+                    break; 
                 }
-        } 
-        
-        while (true); 
-        
+            
+        } while (true);
+
     }
 }
